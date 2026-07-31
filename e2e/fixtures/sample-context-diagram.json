@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "notation": "c4",
+  "notationVersion": "0.1.0",
+  "diagramKind": "context",
+  "meta": {
+    "id": "fixture-context-1",
+    "name": "Sample Context Diagram",
+    "createdAt": "2026-07-31T00:00:00.000Z"
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "type": "c4.person",
+      "position": { "x": 100, "y": 0 },
+      "width": 200,
+      "height": 120,
+      "data": { "label": "Architect", "description": "Draws architecture diagrams" }
+    },
+    {
+      "id": "diagramer",
+      "type": "c4.system",
+      "position": { "x": 100, "y": 240 },
+      "width": 220,
+      "height": 140,
+      "data": { "label": "Diagramer", "description": "Browser-based diagram editor" }
+    }
+  ],
+  "edges": [
+    {
+      "id": "uses",
+      "source": "user",
+      "target": "diagramer",
+      "data": { "label": "Creates diagrams with" }
+    }
+  ]
+}
