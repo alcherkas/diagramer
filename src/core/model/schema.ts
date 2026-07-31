@@ -20,6 +20,9 @@ const edgeSchema = z.object({
   target: z.string().min(1),
   sourceHandle: z.string().nullish(),
   targetHandle: z.string().nullish(),
+  markerEnd: z
+    .union([z.string(), z.looseObject({ type: z.string() })])
+    .optional(),
   data: z.looseObject({ label: z.string().optional() }).optional(),
 })
 

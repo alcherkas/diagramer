@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import { addEdge, applyEdgeChanges, applyNodeChanges } from '@xyflow/react'
+import { MarkerType, addEdge, applyEdgeChanges, applyNodeChanges } from '@xyflow/react'
 import type { Connection, EdgeChange, NodeChange, XYPosition } from '@xyflow/react'
 import type { DiagramDocument, DiagramEdge, DiagramNode } from '../model/types'
 import { getNodeTypeDef, getNotation } from '../notation/registry'
@@ -26,6 +26,7 @@ export interface AppState {
     dataOverrides?: Partial<DiagramNode['data']>,
   ) => DiagramNode | undefined
   updateNodeData: (nodeId: string, data: Partial<DiagramNode['data']>) => void
+  updateEdgeData: (edgeId: string, data: Partial<NonNullable<DiagramEdge['data']>>) => void
   loadDocument: (document: DiagramDocument) => void
   newDocument: () => void
   setTheme: (theme: ThemeMode) => void
@@ -110,6 +111,7 @@ export const useStore = create<AppState>()(
           id: crypto.randomUUID(),
           type: edgeType?.id,
           data: edgeType ? { ...edgeType.defaultData } : { label: '' },
+          markerEnd: { type: MarkerType.ArrowClosed, width: 20, height: 20 },
         }
         set((state) => ({
           document: {
@@ -152,6 +154,16 @@ export const useStore = create<AppState>()(
             ...state.document,
             nodes: state.document.nodes.map((n) =>
               n.id === nodeId ? { ...n, data: { ...n.data, ...data } } : n,
+            ),
+          },
+        })),
+
+      updateEdgeData: (edgeId, data) =>
+        set((state) => ({
+          document: {
+            ...state.document,
+            edges: state.document.edges.map((e) =>
+              e.id === edgeId ? { ...e, data: { ...e.data, ...data } } : e,
             ),
           },
         })),

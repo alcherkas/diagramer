@@ -1,6 +1,6 @@
 # REQ-002: C4 relationship edges with label and technology
 
-- **Status**: ready
+- **Status**: done
 - **Priority**: P1
 - **Source**: vision
 - **Created**: 2026-07-31
@@ -13,14 +13,14 @@ As an architect, I want to connect elements with labeled relationships
 
 ## Acceptance criteria
 
-- [ ] Dragging from a node handle to another node creates a `c4.relationship`
+- [x] Dragging from a node handle to another node creates a `c4.relationship`
       edge (registered as the pack's `defaultEdgeTypeId`).
-- [ ] Edge renders as a dashed bezier with an editable label and an optional
+- [x] Edge renders as a dashed bezier with an editable label and an optional
       `[technology]` chip via `EdgeLabelRenderer`.
-- [ ] Invalid connections (per `pack.rules.canConnect`) are rejected with the
+- [x] Invalid connections (per `pack.rules.canConnect`) are rejected with the
       reason shown in the error toast; self-loops are invalid.
-- [ ] Selecting an edge and pressing Delete removes it.
-- [ ] e2e: one handle-drag connection test; other edge tests seed via
+- [x] Selecting an edge and pressing Delete removes it.
+- [x] e2e: one handle-drag connection test; other edge tests seed via
       `window.__diagramer.loadDocument`.
 
 ## Notes

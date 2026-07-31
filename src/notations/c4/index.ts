@@ -1,4 +1,5 @@
 import type { NotationPack } from '../../core/notation/types'
+import { RelationshipEdge } from './edges/RelationshipEdge'
 import { BoundaryNode } from './nodes/BoundaryNode'
 import { ElementNode } from './nodes/ElementNode'
 import './styles.css'
@@ -61,7 +62,15 @@ export const c4Pack: NotationPack = {
       diagramKinds: ['container', 'component'],
     },
   ],
-  edgeTypes: [],
+  edgeTypes: [
+    {
+      id: 'c4.relationship',
+      displayName: 'Relationship',
+      component: RelationshipEdge,
+      defaultData: { label: 'Uses', technology: '' },
+    },
+  ],
+  defaultEdgeTypeId: 'c4.relationship',
   palette: [
     { nodeTypeId: 'c4.person', label: 'Person', group: 'Elements' },
     { nodeTypeId: 'c4.system', label: 'Software System', group: 'Elements' },

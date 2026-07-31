@@ -34,6 +34,7 @@ export function serializeDocument(document: DiagramDocument): DiagramFile {
       target: edge.target,
       sourceHandle: edge.sourceHandle,
       targetHandle: edge.targetHandle,
+      markerEnd: edge.markerEnd,
       data: edge.data,
     })),
   }

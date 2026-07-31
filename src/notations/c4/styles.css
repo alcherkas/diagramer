@@ -85,6 +85,52 @@
   opacity: 1;
 }
 
+/* Relationship edge */
+
+.c4-edge {
+  stroke: #707070;
+  stroke-width: 1.5;
+  stroke-dasharray: 7 5;
+}
+
+.react-flow__edge.selected .c4-edge {
+  stroke: #f08c00;
+  stroke-width: 2;
+}
+
+.c4-edge__label {
+  position: absolute;
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  font-size: 11px;
+  color: var(--text-h);
+  cursor: pointer;
+  max-width: 180px;
+}
+
+.c4-edge__label--selected {
+  border-color: #f08c00;
+}
+
+.c4-edge__tech {
+  color: var(--text);
+}
+
+.c4-edge__input {
+  font: inherit;
+  width: 100px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+}
+
 /* Boundary (scope) node */
 
 .c4-boundary {
