@@ -1,6 +1,6 @@
 # REQ-001: C4 element palette with click/drag-to-add
 
-- **Status**: done
+- **Status**: verified
 - **Priority**: P1
 - **Source**: vision
 - **Created**: 2026-07-31

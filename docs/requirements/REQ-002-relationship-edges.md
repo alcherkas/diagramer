@@ -27,3 +27,8 @@ As an architect, I want to connect elements with labeled relationships
 
 Label editing may go through the Inspector (REQ-003) if it lands first;
 otherwise a double-click inline editor is acceptable.
+
+Cycle-2 feedback: dragging from a node edge moves the node, so the connect
+gesture must be forgiving — set a generous `connectionRadius` so drops near a
+handle snap to it (dropping on the node body should connect rather than
+silently fail).

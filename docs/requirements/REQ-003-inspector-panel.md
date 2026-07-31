@@ -20,3 +20,5 @@ technology in a side panel so that I can annotate diagrams precisely.
 - [ ] Keyboard shortcuts are suppressed while typing in inspector fields.
 - [ ] Diagram name in the header is editable (feeds exports' `meta.name`).
 - [ ] e2e: select node → edit label → canvas text and document state update.
+- [ ] Error toast (`ui.lastError`) auto-dismisses after a few seconds and
+      clears on the next successful action (cycle-2 feedback).
