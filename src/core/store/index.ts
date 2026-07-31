@@ -27,6 +27,7 @@ export interface AppState {
   ) => DiagramNode | undefined
   updateNodeData: (nodeId: string, data: Partial<DiagramNode['data']>) => void
   updateEdgeData: (edgeId: string, data: Partial<NonNullable<DiagramEdge['data']>>) => void
+  renameDocument: (name: string) => void
   loadDocument: (document: DiagramDocument) => void
   newDocument: () => void
   setTheme: (theme: ThemeMode) => void
@@ -118,6 +119,7 @@ export const useStore = create<AppState>()(
             ...state.document,
             edges: addEdge({ ...connection, ...edge }, state.document.edges),
           },
+          ui: { ...state.ui, lastError: undefined },
         }))
       },
 
@@ -144,6 +146,7 @@ export const useStore = create<AppState>()(
               ? [node, ...state.document.nodes]
               : [...state.document.nodes, node],
           },
+          ui: { ...state.ui, lastError: undefined },
         }))
         return node
       },
@@ -156,6 +159,11 @@ export const useStore = create<AppState>()(
               n.id === nodeId ? { ...n, data: { ...n.data, ...data } } : n,
             ),
           },
+        })),
+
+      renameDocument: (name) =>
+        set((state) => ({
+          document: { ...state.document, meta: { ...state.document.meta, name } },
         })),
 
       updateEdgeData: (edgeId, data) =>

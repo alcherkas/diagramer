@@ -53,6 +53,22 @@ describe('onConnect', () => {
   })
 })
 
+describe('renameDocument', () => {
+  it('updates the document name', () => {
+    useStore.getState().renameDocument('Payments Landscape')
+    expect(useStore.getState().document.meta.name).toBe('Payments Landscape')
+  })
+})
+
+describe('error clearing', () => {
+  it('clears lastError on the next successful action', () => {
+    useStore.getState().addNode('c4.bogus', { x: 0, y: 0 })
+    expect(useStore.getState().ui.lastError).toBeDefined()
+    useStore.getState().addNode('c4.person', { x: 0, y: 0 })
+    expect(useStore.getState().ui.lastError).toBeUndefined()
+  })
+})
+
 describe('updateEdgeData', () => {
   it('merges data into the target edge', () => {
     const { addNode, onConnect } = useStore.getState()

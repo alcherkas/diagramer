@@ -1,6 +1,6 @@
 # REQ-003: Inspector panel for editing element properties
 
-- **Status**: ready
+- **Status**: done
 - **Priority**: P1
 - **Source**: vision
 - **Created**: 2026-07-31
@@ -13,12 +13,12 @@ technology in a side panel so that I can annotate diagrams precisely.
 
 ## Acceptance criteria
 
-- [ ] Selecting a single node or edge shows an inspector panel with fields:
+- [x] Selecting a single node or edge shows an inspector panel with fields:
       label (required), description, technology.
-- [ ] Edits update the canvas live (`updateNodeData` / edge equivalent).
-- [ ] No selection (or multi-selection) shows an empty/neutral state.
-- [ ] Keyboard shortcuts are suppressed while typing in inspector fields.
-- [ ] Diagram name in the header is editable (feeds exports' `meta.name`).
-- [ ] e2e: select node → edit label → canvas text and document state update.
-- [ ] Error toast (`ui.lastError`) auto-dismisses after a few seconds and
+- [x] Edits update the canvas live (`updateNodeData` / edge equivalent).
+- [x] No selection (or multi-selection) shows an empty/neutral state.
+- [x] Keyboard shortcuts are suppressed while typing in inspector fields.
+- [x] Diagram name in the header is editable (feeds exports' `meta.name`).
+- [x] e2e: select node → edit label → canvas text and document state update.
+- [x] Error toast (`ui.lastError`) auto-dismisses after a few seconds and
       clears on the next successful action (cycle-2 feedback).

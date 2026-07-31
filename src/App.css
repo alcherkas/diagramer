@@ -23,6 +23,78 @@
 .app-doc-name {
   font-size: 13px;
   color: var(--text);
+  font-family: inherit;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 2px 6px;
+  min-width: 220px;
+}
+
+.app-doc-name:hover,
+.app-doc-name:focus {
+  border-color: var(--border);
+  outline: none;
+  color: var(--text-h);
+}
+
+/* Edge labels must stay clickable above unselected nodes (REQ-012).
+   Selected nodes get z-index 1000 from React Flow and still win. */
+.react-flow__edgelabel-renderer {
+  z-index: 1;
+}
+
+.inspector {
+  width: 230px;
+  flex-shrink: 0;
+  padding: 14px;
+  border-left: 1px solid var(--border);
+  background: var(--bg);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inspector__title {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+.inspector__empty {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.inspector__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.inspector__field input,
+.inspector__field textarea {
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--text-h);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  resize: vertical;
+}
+
+.inspector__field input:focus,
+.inspector__field textarea:focus {
+  outline: none;
+  border-color: #1168bd;
 }
 
 .app-main {

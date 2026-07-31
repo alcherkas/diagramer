@@ -13,7 +13,7 @@ async function openApp(page: import('@playwright/test').Page) {
 test('app shell and canvas render', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByTestId('app-header')).toContainText('Diagramer')
-  await expect(page.getByTestId('doc-name')).toHaveText('Untitled diagram')
+  await expect(page.getByTestId('doc-name')).toHaveValue('Untitled diagram')
   await expect(page.getByTestId('canvas').locator('.react-flow')).toBeVisible()
   await expect(page.locator('.react-flow__minimap')).toBeVisible()
   await expect(page.locator('.react-flow__controls')).toBeVisible()
@@ -22,7 +22,7 @@ test('app shell and canvas render', async ({ page }) => {
 test('test hooks can seed and read a diagram', async ({ page }) => {
   await openApp(page)
   await page.evaluate((file) => window.__diagramer!.loadDocument(file), fixture)
-  await expect(page.getByTestId('doc-name')).toHaveText('Sample Context Diagram')
+  await expect(page.getByTestId('doc-name')).toHaveValue('Sample Context Diagram')
   await expect(page.locator('.react-flow__node')).toHaveCount(2)
   await expect(page.locator('.react-flow__edge')).toHaveCount(1)
   const doc = await page.evaluate(() => window.__diagramer!.getDocument())
@@ -36,7 +36,7 @@ test('diagram survives a page reload via sessionStorage', async ({ page }) => {
   await page.evaluate((file) => window.__diagramer!.loadDocument(file), fixture)
   await expect(page.locator('.react-flow__node')).toHaveCount(2)
   await page.reload()
-  await expect(page.getByTestId('doc-name')).toHaveText('Sample Context Diagram')
+  await expect(page.getByTestId('doc-name')).toHaveValue('Sample Context Diagram')
   await expect(page.locator('.react-flow__node')).toHaveCount(2)
 })
 
