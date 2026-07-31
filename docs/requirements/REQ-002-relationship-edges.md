@@ -1,6 +1,6 @@
 # REQ-002: C4 relationship edges with label and technology
 
-- **Status**: done
+- **Status**: verified
 - **Priority**: P1
 - **Source**: vision
 - **Created**: 2026-07-31
