@@ -1,6 +1,6 @@
 # REQ-012: Edge labels must stay clickable (not occluded by nodes)
 
-- **Status**: done
+- **Status**: verified
 - **Priority**: P1
 - **Source**: feedback (docs/feedback/2026-07-31-cycle-3.md)
 - **Created**: 2026-07-31

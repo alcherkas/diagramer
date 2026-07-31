@@ -1,6 +1,6 @@
 # REQ-003: Inspector panel for editing element properties
 
-- **Status**: done
+- **Status**: verified
 - **Priority**: P1
 - **Source**: vision
 - **Created**: 2026-07-31
