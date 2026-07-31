@@ -18,4 +18,7 @@ that it is comfortable to use.
       properties; C4 node colors stay legible in both themes.
 - [ ] Choice persists in `localStorage` (UI preference, not diagram data —
       allowed by ADR-0004).
+- [ ] App chrome and canvas use one dark background: chrome is `#111827`
+      while React Flow's dark canvas is `#141414`, leaving a visible seam
+      (docs/feedback/2026-07-31-cycle-1.md).
 - [ ] e2e: toggle changes `data-theme`/color-scheme and survives reload.
