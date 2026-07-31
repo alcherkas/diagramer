@@ -25,10 +25,15 @@ export interface EdgeTypeDef {
 }
 
 export interface PaletteEntry {
+  /** Unique id for this entry; defaults to nodeTypeId. Needed when several
+   * entries share a node type (e.g. internal vs external system). */
+  id?: string
   nodeTypeId: string
   label: string
   /** Palette section header. */
   group?: string
+  /** Overrides merged into the node type's defaultData on add. */
+  data?: Partial<BaseNodeData>
 }
 
 export interface ValidationRules {

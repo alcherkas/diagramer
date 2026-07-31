@@ -1,0 +1,113 @@
+/* C4 element visuals (colors follow c4model.com / Structurizr conventions) */
+
+.c4-node {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.c4-node--person {
+  background: #08427b;
+  border-color: #052e56;
+  border-radius: 14px;
+}
+
+.c4-node--system {
+  background: #1168bd;
+  border-color: #0b4884;
+}
+
+.c4-node--container {
+  background: #438dd5;
+  border-color: #2e6295;
+}
+
+.c4-node--component {
+  background: #85bbf0;
+  border-color: #5d82a8;
+  color: #000000;
+}
+
+.c4-node--external {
+  background: #999999;
+  border-color: #6b6b6b;
+  color: #ffffff;
+}
+
+.c4-node__label {
+  font-weight: 600;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.c4-node__meta {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.c4-node__description {
+  font-size: 11px;
+  opacity: 0.9;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.react-flow__node.selected .c4-node {
+  outline: 2px solid #f08c00;
+  outline-offset: 2px;
+}
+
+.c4-node .react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background: #f08c00;
+  border: 1px solid #ffffff;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.react-flow__node:hover .c4-node .react-flow__handle,
+.c4-node .react-flow__handle.connectionindicator {
+  opacity: 1;
+}
+
+/* Boundary (scope) node */
+
+.c4-boundary {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 2px dashed #6b6b6b;
+  border-radius: 4px;
+  background: rgba(107, 107, 107, 0.06);
+}
+
+.c4-boundary__label {
+  position: absolute;
+  bottom: 6px;
+  left: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.c4-boundary__meta {
+  margin-left: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text);
+}

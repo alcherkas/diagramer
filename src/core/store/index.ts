@@ -20,7 +20,11 @@ export interface AppState {
   onNodesChange: (changes: NodeChange<DiagramNode>[]) => void
   onEdgesChange: (changes: EdgeChange<DiagramEdge>[]) => void
   onConnect: (connection: Connection) => void
-  addNode: (nodeTypeId: string, position: XYPosition) => DiagramNode | undefined
+  addNode: (
+    nodeTypeId: string,
+    position: XYPosition,
+    dataOverrides?: Partial<DiagramNode['data']>,
+  ) => DiagramNode | undefined
   updateNodeData: (nodeId: string, data: Partial<DiagramNode['data']>) => void
   loadDocument: (document: DiagramDocument) => void
   newDocument: () => void
@@ -115,7 +119,7 @@ export const useStore = create<AppState>()(
         }))
       },
 
-      addNode: (nodeTypeId, position) => {
+      addNode: (nodeTypeId, position, dataOverrides) => {
         const def = getNodeTypeDef(nodeTypeId)
         if (!def) {
           set((state) => ({
@@ -129,7 +133,7 @@ export const useStore = create<AppState>()(
           position,
           width: def.defaultSize.width,
           height: def.defaultSize.height,
-          data: { ...def.defaultData },
+          data: { ...def.defaultData, ...dataOverrides },
         }
         set((state) => ({
           document: {
